@@ -10,7 +10,7 @@ function onSubmitClick(e) {
   const formData = new FormData(e.currentTarget);
   const dataValue = {};
 
-  for([key, value] of formData.entries()) {
+  for(const [key, value] of formData.entries()) {
     dataValue[key] = +value;
   }
   let {delay, step, amount} = dataValue;

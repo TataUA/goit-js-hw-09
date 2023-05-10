@@ -1,0 +1,25 @@
+  .timer {
+    display: flex;
+  }
+  
+  .field {
+    display: grid;
+    margin-right: 40px;
+    margin-top: 20px;
+    width: 70px;
+    text-align: center;
+    color: #fae34b;
+    text-shadow: 2px 0 2px #0f0d75, 
+				0 2px 2px #0f0d75, 
+				-2px 0 2px #0f0d75, 
+				0 -2px 2px #0f0d75;
+  }
+
+  .value {
+    font-size: 60px;
+    
+  }
+
+  .label {
+    font-size: 20px;
+  }
