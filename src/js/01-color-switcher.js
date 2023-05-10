@@ -1,29 +1,28 @@
-refs = {
-    body: document.querySelector('body'),
-    startBtn: document.querySelector('[data-start]'),
-    stopBtn : document.querySelector('[data-stop]'),
-}
+const body = document.querySelector('body');
+const startBtn = document.querySelector('[data-start]');
+const stopBtn = document.querySelector('[data-stop]');
+
 let timerID = null;
 
-refs.startBtn.addEventListener('click', onStartClick);
+startBtn.addEventListener('click', onStartClick);
 
-refs.stopBtn.addEventListener('click', onStopClick);
+stopBtn.addEventListener('click', onStopClick);
 
 function onStartClick() {
     timerID = setInterval(() => {
     let color = getRandomHexColor();
-    refs.body.style.backgroundColor = color;
+    body.style.backgroundColor = color;
     }, 1000);
 
-    refs.startBtn.setAttribute("disabled", "disabled");
-    refs.stopBtn.removeAttribute("disabled");
+    startBtn.setAttribute("disabled", "disabled");
+    stopBtn.removeAttribute("disabled");
 };
 
 function onStopClick() {
     clearInterval(timerID);
 
-    refs.startBtn.removeAttribute("disabled");
-    refs.stopBtn.setAttribute("disabled", "disabled");
+    startBtn.removeAttribute("disabled");
+    stopBtn.setAttribute("disabled", "disabled");
 
 };
 
