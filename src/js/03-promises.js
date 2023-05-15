@@ -12,20 +12,23 @@ function onSubmitClick(e) {
 
   for(const [key, value] of formData.entries()) {
     dataValue[key] = +value;
-  }
+  }  
   let {delay, step, amount} = dataValue;
+  
+  if(delay < 0 || step < 0 || amount <= 0) {
+    return Notify.failure(`Sorry, you entered incorrect data`);
+  }
 
   for(let i = 1; i <= amount; i += 1) {
-    delay += step;
-    createPromise(i, delay)
+     createPromise(i, delay)
     .then(({ position, delay }) => {
       Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
     })
     .catch(({ position, delay }) => {
       Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
     });
+    delay += step;
   }
-  formEl.reset();
 }
 
 function createPromise(position, delay) {

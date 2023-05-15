@@ -48,14 +48,18 @@ function handleTime() {
     clearInterval(intervalId);
     timeDifference = 0;
   }
-  addLeadingZero();
-}
+  updateFaceWatch();
+};
 
-function addLeadingZero() {
+function updateFaceWatch() {
   const {days, hours, minutes, seconds} = convertMs(timeDifference);
 
-  daysEl.textContent = String(days).padStart(2, '0');
-  hoursEl.textContent = String(hours).padStart(2, '0');
-  minutesEl.textContent = String(minutes).padStart(2, '0');
-  secondsEl.textContent = String(seconds).padStart(2, '0');
-}
+  daysEl.textContent = addLeadingZero(days);
+  hoursEl.textContent = addLeadingZero(hours);
+  minutesEl.textContent = addLeadingZero(minutes);
+  secondsEl.textContent = addLeadingZero(seconds);
+};
+
+function addLeadingZero(value) {
+  return String(value).padStart(2, '0');
+};
